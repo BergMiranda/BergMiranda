@@ -72,3 +72,7 @@ npm run dev
 - Set secrets via cloud secret manager (JWT, DB URL, SMTP/Twilio keys).
 - Use managed Postgres.
 - Enable HTTPS, audit logging, backups, and observability.
+
+## Pull Requests
+- Use títulos e descrições específicas ao escopo da mudança.
+- Evite mensagens genéricas como `Solicitação de pull request gerada pelo Codex`.
