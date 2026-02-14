@@ -1,0 +1,86 @@
+openapi: 3.0.3
+info:
+  title: Automotive Repair Shop API
+  version: 1.0.0
+servers:
+  - url: http://localhost:4000/api/v1
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+  schemas:
+    Client:
+      type: object
+      properties:
+        id: { type: string }
+        type: { type: string, enum: [INDIVIDUAL, BUSINESS] }
+        name: { type: string }
+        email: { type: string }
+        phone: { type: string }
+    WorkOrder:
+      type: object
+      properties:
+        id: { type: string }
+        status: { type: string }
+        diagnosis: { type: string }
+security:
+  - bearerAuth: []
+paths:
+  /auth/login:
+    post:
+      summary: Login
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [email, password]
+              properties:
+                email: { type: string }
+                password: { type: string }
+      responses:
+        '200':
+          description: JWT token
+  /clients:
+    get:
+      summary: List clients
+      responses:
+        '200': { description: Success }
+    post:
+      summary: Create client
+      responses:
+        '201': { description: Created }
+  /vehicles:
+    get: { summary: List vehicles, responses: { '200': { description: Success } } }
+    post: { summary: Create vehicle, responses: { '201': { description: Created } } }
+  /workOrders:
+    get: { summary: List work orders, responses: { '200': { description: Success } } }
+    post: { summary: Create work order, responses: { '201': { description: Created } } }
+  /work-orders/{id}/send-estimate:
+    post:
+      summary: Generate and send estimate notifications
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema: { type: string }
+      responses:
+        '200': { description: Estimate sent }
+  /work-orders/{id}/approve:
+    post:
+      summary: Approve estimate with digital signature
+      responses:
+        '200': { description: Approved }
+  /work-orders/{id}/start:
+    post: { summary: Start work, responses: { '200': { description: Updated } } }
+  /work-orders/{id}/complete:
+    post: { summary: Complete work and decrement stock, responses: { '200': { description: Updated } } }
+  /work-orders/{id}/invoice:
+    post: { summary: Generate invoice, responses: { '200': { description: Invoiced } } }
+  /reports/invoices/{id}/pdf:
+    get: { summary: Export invoice PDF, responses: { '200': { description: PDF bytes } } }
+  /reports/financials.xlsx:
+    get: { summary: Export financial report Excel, responses: { '200': { description: XLSX bytes } } }
