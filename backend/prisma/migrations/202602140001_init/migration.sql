@@ -1,0 +1,2 @@
+-- Prisma migration placeholder.
+-- Run `npx prisma migrate dev --name init` to generate DB-specific SQL from schema.

@@ -1,0 +1,10 @@
+{
+  "clients": [
+    { "type": "INDIVIDUAL", "name": "John Driver", "phone": "+15551234567", "email": "john@example.com" },
+    { "type": "BUSINESS", "name": "ACME Logistics", "phone": "+15557654321", "email": "fleet@acme.com", "businessTaxId": "99-1234567" }
+  ],
+  "inventory": [
+    { "sku": "SKU-BR-12", "name": "Brake Pad Set", "stockQty": 3, "reorderLevel": 5, "unitCost": 45, "unitPrice": 120 },
+    { "sku": "SKU-OIL-5W30", "name": "Engine Oil 5W30", "stockQty": 20, "reorderLevel": 8, "unitCost": 6, "unitPrice": 12 }
+  ]
+}
