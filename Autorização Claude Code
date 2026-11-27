@@ -1,0 +1,34 @@
+{
+  "enabledPlugins": {
+    "ecc@ecc": true,
+    "impeccable@impeccable": true,
+    "taste-skill@taste-skill": true,
+    "hyperframes@hyperframes": true
+  },
+  "extraKnownMarketplaces": {
+    "ecc": {
+      "source": {
+        "source": "github",
+        "repo": "affaan-m/everything-claude-code"
+      }
+    },
+    "impeccable": {
+      "source": {
+        "source": "github",
+        "repo": "pbakaus/impeccable"
+      }
+    },
+    "taste-skill": {
+      "source": {
+        "source": "github",
+        "repo": "Leonxlnx/taste-skill"
+      }
+    },
+    "hyperframes": {
+      "source": {
+        "source": "github",
+        "repo": "heygen-com/hyperframes"
+      }
+    }
+  }
+}
